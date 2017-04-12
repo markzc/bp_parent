@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"       
+	xmlns:p="http://www.springframework.org/schema/p"  
+	xmlns:context="http://www.springframework.org/schema/context"   
+	xmlns:tx="http://www.springframework.org/schema/tx"  
+	xmlns:aop="http://www.springframework.org/schema/aop"  
+	xsi:schemaLocation="http://www.springframework.org/schema/beans    
+	http://www.springframework.org/schema/beans/spring-beans.xsd    
+	http://www.springframework.org/schema/aop    
+	http://www.springframework.org/schema/aop/spring-aop.xsd    
+	http://www.springframework.org/schema/tx    
+	http://www.springframework.org/schema/tx/spring-tx.xsd    
+	http://www.springframework.org/schema/context    
+	http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<bean id="homeAction" class="com.zc.bp.web.HomeAction" scope="prototype"></bean>
+	<bean id="loginAction" class="com.zc.bp.web.LoginAction" scope="prototype"></bean>
+	<bean id="deptAction" class="com.zc.bp.web.sysadmin.DeptAction" scope="prototype">
+		<property name="deptService" ref="deptService"></property>
+	</bean>
+	<bean id="userAction" class="com.zc.bp.web.sysadmin.UserAction" scope="prototype">
+		<property name="deptService" ref="deptService"></property>
+		<property name="userService" ref="userService"></property>
+		<property name="roleService" ref="roleService"></property>
+	</bean>
+	<bean id="roleAction" class="com.zc.bp.web.sysadmin.RoleAction" scope="prototype">
+		<property name="roleService" ref="roleService"></property>
+		<property name="moduleService" ref="moduleService"></property>
+	</bean>
+	<bean id="moduleAction" class="com.zc.bp.web.sysadmin.ModuleAction" scope="prototype">
+		<property name="moduleService" ref="moduleService"></property>
+	</bean>
+	
+	<bean id="contractAction" class="com.zc.bp.web.cargo.ContractAction" scope="prototype">
+		<property name="deptService" ref="deptService"></property>
+		<property name="contractService" ref="contractService"></property>
+	</bean>
+   
+	<bean id="contractProductAction" class="com.zc.bp.web.cargo.ContractProductAction" scope="prototype">
+		<property name="contractProductService" ref="contractProductService"></property>
+		<property name="factoryService" ref="factoryService"></property>
+	</bean>
+	<bean id="extCproductAction" class="com.zc.bp.web.cargo.ExtCproductAction" scope="prototype">
+		<property name="extCproductService" ref="extCproductService"></property>
+		<property name="factoryService" ref="factoryService"></property>
+	</bean>
+
+	<bean id="outProductAction" class="com.zc.bp.web.cargo.OutProductAction" scope="prototype">
+		<property name="contractProductService" ref="contractProductService"></property>
+		<property name="contractService" ref="contractService"></property>
+	</bean>
+	<bean id="exportAction" class="com.zc.bp.web.cargo.ExportAction" scope="prototype">
+		<property name="exportService" ref="exportService"></property>
+		<property name="exportProductService" ref="exportProductService"></property>
+		<property name="contractService" ref="contractService"></property>
+		<property name="packingListService" ref="packingListService"></property>
+		<property name="weatherClient" ref="weatherClient"></property>
+	</bean>
+	
+	<bean id="packingListAction" class="com.zc.bp.packinglist.PackingListAction" scope="prototype">
+		<property name="packingListService" ref="packingListService"></property>
+		<property name="exportService" ref="exportService"></property>
+		<property name="invoiceService" ref="invoiceService"></property>
+	</bean>
+	
+	<bean id="statChartAction" class="com.zc.bp.web.stat.StatChartAction" scope="prototype">
+		<property name="sqlDao" ref="sqlDao" />
+	</bean>
+
+	<bean id="shippingAction" class="com.zc.bp.packinglist.ShippingAction" scope="prototype">
+		<property name="shippingService" ref="shippingService" />
+		<!-- <property name="invoiceService" ref="invoiceService" /> -->
+	</bean>
+	<bean id="invoiceAction" class="com.zc.bp.invoice.InvoiceAction" scope="prototype">
+		<property name="invoiceService" ref="invoiceService" />
+		<property name="financeService" ref="financeService" />
+		<property name="exportService" ref="exportService" />
+		<property name="packingListService" ref="packingListService" />
+		<property name="shippingService" ref="shippingService" />
+	</bean>
+	<bean id="financeAction" class="com.zc.bp.invoice.FinanceAction" scope="prototype">
+		<property name="invoiceService" ref="invoiceService" />
+		<property name="financeService" ref="financeService" />
+	</bean>
+	<bean id="baseinfoAction" class="com.zc.bp.web.BaseinfoAction" scope="prototype">
+		<property name="factoryService" ref="factoryService" />
+	</bean>
+	<bean id="messageAction" class="com.zc.bp.web.sysadmin.MessageAction" scope="prototype">
+		<property name="messageService" ref="messageService" />
+		<property name="userService" ref="userService" />
+	</bean>
+	<bean id="taskAction" class="com.zc.bp.web.sysadmin.TaskAction" scope="prototype">
+		<property name="taskService" ref="taskService"></property>
+		<property name="moduleService" ref="moduleService"></property>
+		<property name="userService" ref="userService"></property>
+	</bean>
+	<!-- feedback 反馈模块 -->
+	<bean id="feedbackAction" class="com.zc.bp.web.FeedbackAction" scope="prototype">
+		<property name="feedbackService" ref="feedbackService"/>
+		<property name="userService" ref="userService"/>
+		<property name="deptService" ref="deptService"/>
+	</bean>
+	<!-- SysFeedback 系统使用模块 -->
+	<bean id="sysFeedbackAction" class="com.zc.bp.web.sysFeedbackAction" scope="prototype">
+		<property name="sysFeedbackService" ref="sysFeedbackService"/>
+	</bean>
+	
+	<bean id="orderFlowAction" class="com.zc.bp.web.OrderFlowAction" scope="prototype">
+		<property name="shoppingListService" ref="shoppingListService"/>
+	</bean>
+	
+</beans>

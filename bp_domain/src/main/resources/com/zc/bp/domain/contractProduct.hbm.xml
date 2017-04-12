@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.zc.bp.domain" >
+	<class name="ContractProduct" table="contract_product_c" >
+		<id name="id" column="CONTRACT_PRODUCT_ID" type="java.lang.String">
+			<generator class="uuid"></generator>
+		</id>
+		
+		<property name="factoryName" column="FACTORY_NAME"></property>
+		<property name="productNo" column="PRODUCT_NO"></property>
+		<property name="productImage" column="PRODUCT_IMAGE"></property>
+		<property name="productDesc" column="PRODUCT_DESC"></property>
+		<property name="loadingRate" column="LOADING_RATE"></property>
+		<property name="boxNum" column="BOX_NUM"></property>
+		<property name="packingUnit" column="PACKING_UNIT"></property>
+		<property name="cnumber" column="CNUMBER"></property>
+		<property name="outNumber" column="OUT_NUMBER"></property>
+		<property name="finished" column="FINISHED"></property>
+		<property name="productRequest" column="PRODUCT_REQUEST"></property>
+		<property name="price" column="PRICE"></property>
+		<property name="amount" column="AMOUNT"></property>
+		<property name="orderNo" column="ORDER_NO"></property>
+		
+		<many-to-one name="contract" class="Contract" column="CONTRACT_ID"></many-to-one>
+		<many-to-one name="factory" class="Factory" column="FACTORY_ID"></many-to-one>
+		<set name="extCproducts" cascade="all" inverse="true">
+			<key column="CONTRACT_PRODUCT_ID"></key>
+			<one-to-many class="ExtCproduct"></one-to-many>
+		</set>
+	</class>
+</hibernate-mapping>
+

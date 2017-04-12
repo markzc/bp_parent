@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.zc.bp.domain" >
+	<class name="PackingList" table="packing_list_c" dynamic-update="true" dynamic-insert="true">
+		<id name="id" column="PACKING_LIST_ID" type="java.lang.String">
+			<!--hibernate主键生成策略：native, increment,sequence,uuid,assigned,identity  -->
+			<generator class="assigned"></generator>
+		</id>
+		<property name="seller" column="SELLER"></property>
+		<property name="buyer" column="BUYER"></property>
+		<property name="invoiceNo" column="INVOICE_NO"></property>
+		<property name="invoiceDate" column="INVOICE_DATE"></property>
+		<property name="marks" column="MARKS"></property>
+		<property name="descriptions" column="DESCRIPTIONS"></property>
+		<property name="exportIds" column="EXPORT_IDS"></property>
+		<property name="exportNos" column="EXPORT_NOS"></property>
+		<property name="state" column="STATE"></property>
+		<property name="createBy" column="CREATE_BY"></property>
+		<property name="createDept" column="CREATE_DEPT"></property>
+		<property name="createTime" column="CREATE_TIME"></property>
+		
+		
+		
+	</class>
+</hibernate-mapping>

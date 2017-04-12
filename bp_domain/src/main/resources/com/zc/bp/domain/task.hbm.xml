@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-3-7 15:22:16 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping package="com.zc.bp.domain" >
+    <class name="Task" table="TASK_P"  >
+		<id name="id" column="TASK_ID">
+			<generator class="uuid"/>
+		</id>
+	<!-- 	private User user;//接收任务的人
+	private Module module;//任务种类
+	private Integer state;//任务状态 0 未完成 1 已完成 2 转交
+	private String description;//描述
+	private Date finishDate; -->
+		<property name="state" column="STATE"></property>
+		<property name="description" column="DESCRIPTION"></property>
+		<property name="finishDate" column="FINISH_DATE"></property>
+		<property name="defaultState" column="DEFAULT_STATE"></property>
+		
+		<property name="createBy" column="CREATE_BY"/>
+		<property name="createTime" column="CREATE_TIME"/>
+		<property name="createDept" column="CREATE_DEPT"/>
+		<property name="updateBy" column="UPDATE_BY"/>
+		<property name="updateTime" column="UPDATE_TIME"/>
+		
+		<!-- 任务与用户是一对多 -->
+		<many-to-one name="user"  column="USER_ID" class="User"></many-to-one>
+		<!-- 任务与模块是多对一 -->
+		<many-to-one name="module"  column="MODULE_ID" class="Module"></many-to-one>
+	</class>
+</hibernate-mapping>    

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.zc.bp.domain" >
+	<class name="Factory" table="factory_c" dynamic-update="true" dynamic-insert="true">
+		<id name="id" column="FACTORY_ID" type="java.lang.String">
+			<!--hibernate主键生成策略：native, increment,sequence,uuid,assigned,identity  -->
+			<generator class="assigned"></generator>
+		</id>
+		
+		<property name="ctype" column="CTYPE"></property>
+		<property name="fullName" column="FULL_NAME"></property>
+		<property name="factoryName" column="FACTORY_NAME"></property>
+		<property name="contacts" column="CONTACTS"></property>
+		<property name="phone" column="PHONE"></property>
+		<property name="mobile" column="MOBILE"></property>
+		<property name="fax" column="FAX"></property>
+		<property name="address" column="ADDRESS"></property>
+		<property name="inspector" column="INSPECTOR"></property>
+		<property name="remark" column="REMARK"></property>
+		<property name="orderNo" column="ORDER_NO"></property>
+		<property name="state" column="STATE"></property>
+		<property name="createBy" column="CREATE_BY"></property>
+		<property name="createDept" column="CREATE_DEPT"></property>
+		<property name="createTime" column="CREATE_TIME"></property>
+		<property name="updateBy" column="UPDATE_BY"></property>
+		<property name="updateTime" column="UPDATE_TIME"></property>
+		
+		<!-- <set name="contractProducts">
+			<key column="FACTORY_ID" />
+			<one-to-many class="ContractProduct" />
+		</set>
+		<set name="extCproducts">
+			<key column="FACTORY_ID" />
+			<one-to-many class="ExtCproduct" />
+		</set> -->
+		
+	</class>
+</hibernate-mapping>

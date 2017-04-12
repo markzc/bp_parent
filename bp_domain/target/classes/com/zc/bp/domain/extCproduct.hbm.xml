@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.zc.bp.domain" >
+	<class name="ExtCproduct" table="ext_cproduct_c" >
+		<id name="id" column="EXT_CPRODUCT_ID" type="java.lang.String">
+			<generator class="uuid"></generator>
+		</id>
+		<property name="factoryName" column="FACTORY_NAME"></property>
+		<property name="productNo" column="PRODUCT_NO"></property>
+		<property name="productImage" column="PRODUCT_IMAGE"></property>
+		<property name="productDesc" column="PRODUCT_DESC"></property>
+		<property name="packingUnit" column="PACKING_UNIT"></property>
+		<property name="cnumber" column="CNUMBER"></property>
+		<property name="price" column="PRICE"></property>
+		<property name="amount" column="AMOUNT"></property>
+		<property name="productRequest" column="PRODUCT_REQUEST"></property>
+		<property name="orderNo" column="ORDER_NO"></property>
+		
+		<many-to-one name="contractProduct" class="ContractProduct" column="CONTRACT_PRODUCT_ID"></many-to-one>
+		<many-to-one name="factory" class="Factory" column="FACTORY_ID"></many-to-one>
+		
+	</class>
+</hibernate-mapping>
+

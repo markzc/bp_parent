@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.zc.bp.domain" >
+	<class name="Contract" table="contract_c" dynamic-insert="true" dynamic-update="true">
+		<id name="id" column="CONTRACT_ID" type="java.lang.String">
+			<!--hibernate主键生成策略：native, increment,sequence,uuid,assigned,identity  -->
+			<generator class="uuid"></generator>
+		</id>
+		<property name="offeror" column="OFFEROR"></property>
+		<property name="contractNo" column="CONTRACT_NO"/>
+		<property name="signingDate" column="SIGNING_DATE"></property>
+		<property name="inputBy" column="INPUT_BY"></property>
+		<property name="checkBy" column="CHECK_BY"></property>
+		<property name="inspector" column="INSPECTOR"></property>
+		<property name="totalAmount" column="TOTAL_AMOUNT"></property>
+		<property name="crequest" column="CREQUEST"></property>
+		<property name="customName" column="CUSTOM_NAME"></property>
+		<property name="shipTime" column="SHIP_TIME"></property>
+		<property name="importNum" column="IMPORT_NUM"></property>
+		<property name="deliveryPeriod" column="DELIVERY_PERIOD"></property>
+		<property name="oldState" column="OLD_STATE"></property>
+		<property name="outState" column="OUT_STATE"></property>
+		<property name="tradeTerms" column="TRADE_TERMS"></property>
+		<property name="printStyle" column="PRINT_STYLE"></property>
+		<property name="remark" column="REMARK"></property>
+		<property name="state" column="STATE"></property>
+		<property name="createBy" column="CREATE_BY"></property>
+		<property name="createDept" column="CREATE_DEPT"></property>
+		<property name="createTime" column="CREATE_TIME"></property>
+		<property name="updateBy" column="UPDATE_BY"></property>
+		<property name="updateTime" column="UPDATE_TIME"></property>
+		
+		
+		<set name="contractProducts" cascade="all" inverse="true">
+			<key column="CONTRACT_ID"></key>
+			<one-to-many class="ContractProduct" />
+		</set>
+		
+	</class>
+</hibernate-mapping>
+

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+	<session-factory>
+		<property name="dialect">
+            org.hibernate.dialect.Oracle10gDialect
+        </property>
+
+		<property name="show_sql">true</property>
+		<property name="format_sql">false</property>
+		<property name="hbm2ddl.auto">none</property>
+		<!-- 懒加载，配合web.xml中配置的 openSessionInViewFilter -->
+		<property name="hibernate.enable_lazy_load_no_trans">true</property>
+        <!--校验模式  JPA  java persistent api-->
+		<property name="javax.persistence.validation.mode">none</property>
+		
+		<!--  加载映射文件-->
+		<mapping resource="com/zc/bp/domain/dept.hbm.xml"></mapping>
+		<mapping resource="com/zc/bp/domain/user.hbm.xml"></mapping>
+		<mapping resource="com/zc/bp/domain/userinfo.hbm.xml"></mapping>
+		<mapping resource="com/zc/bp/domain/role.hbm.xml"></mapping>
+		<mapping resource="com/zc/bp/domain/module.hbm.xml"></mapping>
+		<mapping resource="com/zc/bp/domain/factory.hbm.xml"></mapping>
+		<mapping resource="com/zc/bp/domain/contract.hbm.xml"></mapping>
+		<mapping resource="com/zc/bp/domain/extCproduct.hbm.xml"></mapping>
+		<mapping resource="com/zc/bp/domain/contractProduct.hbm.xml"></mapping>
+		<mapping resource="com/zc/bp/domain/export.hbm.xml"></mapping>
+		<mapping resource="com/zc/bp/domain/exportProduct.hbm.xml"></mapping>
+		<mapping resource="com/zc/bp/domain/extEproduct.hbm.xml"></mapping>
+		<mapping resource="com/zc/bp/domain/packingList.hbm.xml"></mapping>
+		<mapping resource="com/zc/bp/domain/ShippingOrder.hbm.xml"></mapping>
+		<mapping resource="com/zc/bp/domain/Invoice.hbm.xml"></mapping>
+		<mapping resource="com/zc/bp/domain/Finance.hbm.xml"></mapping>
+		<mapping resource="com/zc/bp/domain/message.hbm.xml"></mapping>
+		<mapping resource="com/zc/bp/domain/task.hbm.xml"></mapping>
+		<mapping resource="com/zc/bp/domain/feedback.hbm.xml"></mapping>
+		<mapping resource="com/zc/bp/domain/sysFeedback.hbm.xml"></mapping>
+		<mapping resource="com/zc/bp/domain/shoppingList.hbm.xml"></mapping>
+	</session-factory>
+	</hibernate-configuration>

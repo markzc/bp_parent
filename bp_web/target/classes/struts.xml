@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.ui.theme" value="simple"/>
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+
+	<package name="default" namespace="/" extends="struts-default">
+		
+		<global-results>
+			<result name="error">/WEB-INF/pages/error.jsp</result>
+		</global-results>
+		
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="com.zc.bp.exception.SysException"></exception-mapping>
+			<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+
+		<action name="login" method="login" class="loginAction">
+			<result name="login">/WEB-INF/pages/sysadmin/login/login.jsp</result>
+			<result name="success">/WEB-INF/pages/home/fmain.jsp</result>
+		</action>
+		<action name="logout" method="logout" class="loginAction">
+			<result name="logout">/WEB-INF/pages/sysadmin/login/logout.jsp</result>
+		</action>
+		
+		
+		
+		<action name="homeAction_*" method="{1}" class="homeAction">
+			<result name="fmain">/WEB-INF/pages/home/fmain.jsp</result>
+			<result name="title">/WEB-INF/pages/home/title.jsp</result>
+			<result name="toleft">/WEB-INF/pages/${moduleName}/left.jsp</result>
+			<result name="tomain">/WEB-INF/pages/${moduleName}/main.jsp</result>
+		</action>
+		
+		<action name="baseinfo_*" method="{1}" class="baseinfoAction">
+			<result name="code">/WEB-INF/pages/baseinfo/codeinfo.jsp</result>
+			<result name="factory">/WEB-INF/pages/baseinfo/factoryinfo.jsp</result>
+			<result name="factoryView">/WEB-INF/pages/baseinfo/factoryView.jsp</result>
+			<result name="factoryUpdate">/WEB-INF/pages/baseinfo/factoryUpdate.jsp</result>
+			<result name="alist" type="redirectAction">baseinfo_factory</result>
+			<result name="toadd" >/WEB-INF/pages/baseinfo/addFactory.jsp</result>
+		</action>
+		
+		<action name="orderFlowAction_*" method="{1}" class="orderFlowAction">
+			<result name="list">/WEB-INF/pages/activiti/jOrderFlow.jsp</result>
+			<result name="toAddOrder">/WEB-INF/pages/activiti/jAddOrderFlow.jsp</result>
+			<result name="alist" type="redirectAction">orderFlowAction_orderTaskList</result>
+			<result name="toupdate" >/WEB-INF/pages/activiti/jUpdateOrderFlow.jsp</result>
+			<result name="deploy" >/WEB-INF/pages/activiti/deployProcess.jsp</result>
+		</action>
+		
+		<!-- 意见反馈模块  -->
+		<action name="feedbackAction_*" method="{1}" class="feedbackAction">
+			<result name="alist" type="redirect">feedbackAction_list</result>
+			<result name="ulist" type="redirect">feedbackAction_tounderling</result>
+			<result name="plist">/WEB-INF/pages/baseinfo/feedback/jFeedbackList.jsp</result>
+			<result name="pcreate">/WEB-INF/pages/baseinfo/feedback/jFeedbackCreate.jsp</result>
+			<result name="pupdate">/WEB-INF/pages/baseinfo/feedback/jFeedbackUpdate.jsp</result>
+			<result name="pview">/WEB-INF/pages/baseinfo/feedback/jFeedbackView.jsp</result>
+			<!-- <result name="uview">/WEB-INF/pages/baseinfo/feedback/jFeedbackUView.jsp</result> -->
+			<result name="underList">/WEB-INF/pages/baseinfo/feedback/jFeedbackUnderView.jsp</result>
+			<result name="toanswer">/WEB-INF/pages/baseinfo/feedback/jFeedbackReply.jsp</result>
+		</action>
+		<!-- 系统使用反馈模块 -->
+		<action name="sysFeedbackAction_*" method="{1}" class="sysFeedbackAction">
+			<result name="list">/WEB-INF/pages/baseinfo/sysfeedback/jSysFeedbackList.jsp</result>
+			<result name="alist" type="redirectAction">sysFeedbackAction_list</result>
+			<result name="adminlist">/WEB-INF/pages/baseinfo/sysfeedback/jSysFeedbackAdminList.jsp</result>
+			<result name="toadminview">/WEB-INF/pages/baseinfo/sysfeedback/jSysFeedbackAdminView.jsp</result>
+			<result name="gotopage">/WEB-INF/pages/baseinfo/sysfeedback/jSysFeedbackAdminCreate.jsp</result>
+			<result name="adminsave" type="redirectAction">sysFeedbackAction_adminlist</result>
+			<result name="toupdate">/WEB-INF/pages/baseinfo/sysfeedback/jSysFeedbackUpdate.jsp</result>
+			<result name="update" type="redirectAction">sysFeedbackAction_list</result>
+		</action>
+		
+	</package>
+
+	<!-- 分模块开发 -->
+	<include file="struts2/struts-sysadmin.xml"></include>
+	<include file="struts2/struts-cargo.xml"></include>
+	<include file="struts2/struts-stat.xml"></include>
+	
+</struts>
+	

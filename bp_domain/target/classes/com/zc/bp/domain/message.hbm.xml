@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.zc.bp.domain" >
+	<!-- 配置类的映射 -->
+	<class name="Message" table="MESSAGE_P" dynamic-insert="true" dynamic-update="true">
+		<!-- 1.配置主键生成策略 -->
+		<id name="id" column="MESSAGE_ID" type="string">
+			<generator class="uuid"/>
+		</id>
+
+		<!-- 2.配置其他属性 -->
+		<property name="senderId" column="SENDER_ID" type="string"/>
+		<property name="message" column="MESSAGE" type="string"/>
+		<property name="state" column="STATE" type="double"/>
+		<property name="createTime" column="CREATE_TIME" type="date"/>
+		<property name="recipientId" column="RECIPIENT_ID" type="string"/>
+		<property name="title" column="TITLE" type="string"/>
+	</class>
+
+</hibernate-mapping>

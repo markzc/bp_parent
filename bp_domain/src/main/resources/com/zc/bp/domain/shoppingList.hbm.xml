@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.zc.bp.domain" >
+	<class name="ShoppingList" table="SHOPPING_LIST" dynamic-update="true" dynamic-insert="true">
+		<id name="sid" column="shopping_list_id" type="java.lang.String">
+			<!--hibernate主键生成策略：native, increment,sequence,uuid,assigned,identity  -->
+			<generator class="assigned"></generator>
+		</id>
+		
+		<property name="productName" column="product_name" type="string" />
+		<property name="count" column="product_count" type="string" />
+		<property name="price" column="product_price" type="string" />
+		<property name="desc" column="product_desc" type="string" />
+		<property name="factory" column="product_factory" type="string" />
+		<property name="weight" column="product_weight" type="string" />
+		<property name="uname" column="product_uname" type="string" />
+		
+       
+	</class>
+</hibernate-mapping>

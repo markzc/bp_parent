@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"       
+	xmlns:p="http://www.springframework.org/schema/p"  
+	xmlns:context="http://www.springframework.org/schema/context"   
+	xmlns:tx="http://www.springframework.org/schema/tx"  
+	xmlns:aop="http://www.springframework.org/schema/aop"  
+	xsi:schemaLocation="http://www.springframework.org/schema/beans    
+	http://www.springframework.org/schema/beans/spring-beans.xsd    
+	http://www.springframework.org/schema/aop    
+	http://www.springframework.org/schema/aop/spring-aop.xsd    
+	http://www.springframework.org/schema/tx    
+	http://www.springframework.org/schema/tx/spring-tx.xsd    
+	http://www.springframework.org/schema/context    
+	http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<bean id="deptService" class="com.zc.bp.service.impl.DeptServiceImpl">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
+	<bean id="userService" class="com.zc.bp.service.impl.UserServiceImpl">
+		<property name="baseDao" ref="baseDao"></property>
+		<property name="mailMessage" ref="mailMessage"></property>
+		<property name="mailSender" ref="mailSender"></property>
+	</bean>
+	<bean id="roleService" class="com.zc.bp.service.impl.RoleServiceImpl">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
+	<bean id="moduleService" class="com.zc.bp.service.impl.ModuleServiceImpl">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
+	<bean id="contractService" class="com.zc.bp.service.impl.ContractServiceImpl">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
+	<bean id="contractProductService" class="com.zc.bp.service.impl.ContractProductServiceImpl">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
+	<bean id="extCproductService" class="com.zc.bp.service.impl.ExtCproductServiceImpl">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
+	<bean id="factoryService" class="com.zc.bp.service.impl.FactoryServiceImpl">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
+	<bean id="exportService" class="com.zc.bp.service.impl.ExportServiceImpl">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
+	<bean id="exportProductService" class="com.zc.bp.service.impl.ExportProductServiceImpl">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
+	<bean id="extEproductService" class="com.zc.bp.service.impl.ExtEproductServiceImpl">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
+	<bean id="packingListService" class="com.zc.bp.service.impl.PackingListServiceImpl">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
+	<bean id="shippingService" class="com.zc.bp.service.impl.ShippingServiceImpl">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
+	<bean id="invoiceService" class="com.zc.bp.service.impl.InvoiceServiceImpl">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
+	<bean id="financeService" class="com.zc.bp.service.impl.FinanceServiceImpl">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
+	<bean id="messageService" class="com.zc.bp.service.impl.MessageServiceImpl">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
+	<bean id="taskService" class="com.zc.bp.service.impl.TaskServiceImpl">
+		<property name="baseDao" ref="baseDao"/>
+	</bean>
+	<!-- feedback 反馈模块 -->
+	<bean id="feedbackService" class="com.zc.bp.service.impl.FeedbackServiceImpl">
+		<property name="baseDao" ref="baseDao"/>
+	</bean>
+	<!-- 系统反馈模块 -->
+	<bean id="sysFeedbackService" class="com.zc.bp.service.impl.SysFeedbackServiceImpl">
+		<property name="baseDao" ref="baseDao"/>
+	</bean>
+	<bean id="shoppingListService" class="com.zc.bp.service.impl.ShoppingListServiceImpl">
+		<property name="baseDao" ref="baseDao"/>
+	</bean>
+</beans>
